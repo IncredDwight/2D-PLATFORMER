@@ -11052,12 +11052,12 @@ PrefabInstance:
     - target: {fileID: 8659217200155817385, guid: 92c92afd172127a4cb7f2b37543037f9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8659217200155817385, guid: 92c92afd172127a4cb7f2b37543037f9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8659217200155817385, guid: 92c92afd172127a4cb7f2b37543037f9,
         type: 3}
@@ -11088,6 +11088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659217200155817385, guid: 92c92afd172127a4cb7f2b37543037f9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8659217200155817390, guid: 92c92afd172127a4cb7f2b37543037f9,
         type: 3}
@@ -12208,6 +12213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkullEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 157830295944210757, guid: 13bbf004dadc7db4182477deed31b2fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 157830295944210759, guid: 13bbf004dadc7db4182477deed31b2fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12331,6 +12341,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 672353784668470835, guid: 451a49ee7b4590e42b5b7178b00ec703,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.167
+      objectReference: {fileID: 0}
+    - target: {fileID: 672353784668470835, guid: 451a49ee7b4590e42b5b7178b00ec703,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.167
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 451a49ee7b4590e42b5b7178b00ec703, type: 3}
@@ -12887,6 +12907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fly
       objectReference: {fileID: 0}
+    - target: {fileID: 5843098159713687488, guid: 96a3c69894528bb458f9b4206334603c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5843098159713687490, guid: 96a3c69894528bb458f9b4206334603c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13103,6 +13128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaggonEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046700356468836330, guid: 1596a45169eb90d4aa77e38c52e96200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8046700356468836335, guid: 1596a45169eb90d4aa77e38c52e96200,
         type: 3}
@@ -13478,6 +13508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlyQueen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973148734329478071, guid: 7e7dd0b83bf95a24586344c2c2711fb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8973148734329478073, guid: 7e7dd0b83bf95a24586344c2c2711fb6,
         type: 3}

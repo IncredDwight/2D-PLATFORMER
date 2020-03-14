@@ -12,21 +12,21 @@ public class Enemy : MonoBehaviour, IDamageable
     protected float _health;
     protected float _maxHealth;
 
-    private float _startScaleX;
+    private Vector3 _startScale;
+    protected bool _flipY;
 
     protected virtual void Start()
     {
-        Debug.Log("Hi");
         _health = _maxHealth;
-        _startScaleX = transform.localScale.x;
+        _startScale = transform.localScale;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (FindObjectOfType<PlayerStats>().transform.position.x < transform.position.x)
-            transform.localScale = new Vector2(-_startScaleX, transform.localScale.y);
+            transform.localScale = (!_flipY) ? new Vector2(-_startScale.x, _startScale.y) : new Vector2(_startScale.x, -_startScale.y);
         else
-            transform.localScale = new Vector2(_startScaleX, transform.localScale.y);
+            transform.localScale = new Vector2(_startScale.x, _startScale.y);
     }
 
     public void Heal(float heal)

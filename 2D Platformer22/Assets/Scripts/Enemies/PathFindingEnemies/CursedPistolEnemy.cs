@@ -11,6 +11,7 @@ public class CursedPistolEnemy : EnemyPathFinder
 
     private void Awake()
     {
+        _flipY = true;
         EnemySetUp(3, 20, 30);
     }
 
@@ -20,21 +21,24 @@ public class CursedPistolEnemy : EnemyPathFinder
         _projectile = FindObjectOfType<CursedWeaponProjectile>().gameObject;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         transform.right = FindObjectOfType<PlayerStats>().transform.position - transform.position;
         transform.GetChild(0).rotation = transform.rotation;
-        RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.right);
-        if(hit.collider.GetComponent<PlayerStats>() != null)
-            Shoot();
+        Shoot();
     }
 
     private void Shoot()
     {
-        if(Time.time > _nextFire)
+        RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.right);
+        if (hit.collider.GetComponent<PlayerStats>() != null)
         {
-            _nextFire = Time.time + _fireRate;
-            Instantiate(_projectile, transform.GetChild(0).transform.position, transform.rotation);
+            if (Time.time > _nextFire)
+            {
+                _nextFire = Time.time + _fireRate;
+                Instantiate(_projectile, transform.GetChild(0).transform.position, transform.rotation);
+            }
         }
     }
 }
