@@ -9,5 +9,11 @@ public class Flies : EnemyPathFinder
         EnemySetUp(9, 5, 10);
     }
 
-    
+    protected override void Start()
+    {
+        base.Start();
+        _enemyAi.enableRotation = true;
+    }
+
+
 }

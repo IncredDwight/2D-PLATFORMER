@@ -6,15 +6,18 @@ public class FlyQueen : Enemy
 {
     private float _spawnCooldown;
     private float _currentSpawnCooldown;
-    GameObject fly;
+
+    private GameObject _fly;
 
     protected override void Start()
     {
         base.Start();
-        fly = GameObject.Find("Fly");
+        _fly = FindObjectOfType<Flies>().gameObject;
         EnemySetUp(4, 50, 20);
         _spawnCooldown = 1.5f;
         _currentSpawnCooldown = _spawnCooldown;
+        if (_fly != null)
+            _fly.SetActive(false);
     }
 
     private void Update()
@@ -27,7 +30,8 @@ public class FlyQueen : Enemy
 
     private void SpawnFly()
     {
-        Instantiate(fly, transform.position - new Vector3(0, 1),Quaternion.identity);
+        GameObject _flyClone = Instantiate(_fly, transform.position - new Vector3(0, 1),Quaternion.identity);
+        _flyClone.SetActive(true);
         _currentSpawnCooldown = _spawnCooldown;
     }
     
