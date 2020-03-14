@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
 
     private float _fireRate;
     private float _nextFire;
-    private int _ammo;
+    public int _ammo;
     private Vector3 _currentScale;
 
     private float rotZ;

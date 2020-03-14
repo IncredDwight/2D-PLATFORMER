@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponChangeSystem : MonoBehaviour
 {
     public GameObject[] weapons;
-    private int currentWeapon;
+    private int _currentWeapon;
 
     private void Start()
     {
@@ -17,20 +18,28 @@ public class WeaponChangeSystem : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            currentWeapon = 0;
+            ChangeWeapon(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-            currentWeapon = 1;
-        if (currentWeapon == 0)
+            ChangeWeapon(1);
+        ShowWeapon();
+    }
+
+    private void ChangeWeapon(int currWeapon)
+    {
+        _currentWeapon = currWeapon;
+        foreach(GameObject weapon in weapons)
         {
-            weapons[0].SetActive(true);
-            weapons[1].transform.position = new Vector3(0, 0, -10);
-            weapons[1].SetActive(false);
+            if (weapons[_currentWeapon] == weapon)
+            {
+                weapon.SetActive(true);
+            }
+            else
+                weapon.SetActive(false);
         }
-        else if (currentWeapon == 1)
-        {
-            weapons[1].SetActive(true);
-            weapons[0].transform.position = new Vector3(0, 0, -10);
-            weapons[0].SetActive(false);
-        }
+    }
+
+    private void ShowWeapon()
+    {
+        GameObject.Find("Text").GetComponent<Text>().text = weapons[_currentWeapon].GetComponent<Weapon>()._ammo.ToString() + "/30";
     }
 }
