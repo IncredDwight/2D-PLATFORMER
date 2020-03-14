@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyPathFinder : Enemy
 {
-    private AIPath _enemyAi;
+    protected AIPath _enemyAi;
     private AIDestinationSetter _aIDestinationSetter;
 
     private Transform _target;
@@ -29,7 +29,7 @@ public class EnemyPathFinder : Enemy
         _enemyAi.orientation = OrientationMode.YAxisForward;
         _enemyAi.gravity = Vector3.zero;
         _enemyAi.pickNextWaypointDist = 1;
-        _enemyAi.enableRotation = false;
+        //_enemyAi.enableRotation = false;
         _enemyAi.maxSpeed = _movementSpeed;
         BoxCollider2D collider2D = gameObject.AddComponent<BoxCollider2D>();
         collider2D.isTrigger = true;

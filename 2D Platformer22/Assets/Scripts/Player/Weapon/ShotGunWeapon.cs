@@ -6,6 +6,6 @@ public class ShotGunWeapon : Weapon
 {
     private void Start()
     {
-        WeaponSetUp(2f, 10, FindObjectOfType<ShotGunProjectile>().gameObject);
+        WeaponSetUp(0.8f, 10, FindObjectOfType<ShotGunProjectile>().gameObject);
     }
 }
