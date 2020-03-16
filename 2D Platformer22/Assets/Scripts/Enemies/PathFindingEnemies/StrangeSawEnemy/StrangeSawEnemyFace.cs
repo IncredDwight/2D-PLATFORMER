@@ -5,11 +5,14 @@ using UnityEngine;
 public class StrangeSawEnemyFace : MonoBehaviour
 {
     private Vector3 _sawPos;
+    private Quaternion _startRotation;
 
+    private void Awake()
+    {
+        _startRotation = transform.rotation;
+    }
     private void Update()
     {
-        _sawPos = FindObjectOfType<StrangeSawEnemy>().transform.position;
-        transform.position = new Vector3(_sawPos.x, _sawPos.y, -1);
-        transform.Rotate(Vector2.zero);
+        transform.rotation = _startRotation;
     }
 }
