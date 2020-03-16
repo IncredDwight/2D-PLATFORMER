@@ -9,12 +9,15 @@ public class FlyQueen : Enemy
 
     private GameObject _fly;
 
+    private void Awake()
+    {
+        EnemySetUp(4, 50, 20);
+        _spawnCooldown = 1.5f;
+    }
     protected override void Start()
     {
         base.Start();
         _fly = FindObjectOfType<Flies>().gameObject;
-        EnemySetUp(4, 50, 20);
-        _spawnCooldown = 1.5f;
         _currentSpawnCooldown = _spawnCooldown;
         if (_fly != null)
             _fly.SetActive(false);
