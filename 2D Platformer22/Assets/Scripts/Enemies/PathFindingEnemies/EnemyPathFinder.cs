@@ -43,10 +43,4 @@ public class EnemyPathFinder : Enemy
             _aIDestinationSetter = GetComponent<AIDestinationSetter>();
         _aIDestinationSetter.target = _target;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<PlayerStats>() != null)
-            collision.GetComponent<PlayerStats>().TakeDamage(_damage);
-    }
 }

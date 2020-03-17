@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    protected PlayerStats _playerStats;
     [SerializeField]
     protected float _movementSpeed;
     [SerializeField]
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
+        _playerStats = FindObjectOfType<PlayerStats>();
         _health = _maxHealth;
         _startScale = transform.localScale;
     }
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
             Die();
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         Debug.Log("Враг должен умирать, но программисту тоже кушац хочется(((");
         Destroy(gameObject);
@@ -54,6 +56,12 @@ public class Enemy : MonoBehaviour, IDamageable
         _movementSpeed = movementSpeed1;
         _maxHealth = maxHealth1;
         _damage = damage1;
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerStats>() != null)
+            collision.GetComponent<PlayerStats>().TakeDamage(_damage);
     }
 
 }

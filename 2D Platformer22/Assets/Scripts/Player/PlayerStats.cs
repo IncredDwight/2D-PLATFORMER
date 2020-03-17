@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
@@ -88,9 +88,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
         _health = _maxHealth;
     }
 
-    void Update()
+    public T AddStatusEffect<T>() where T : MonoBehaviour
     {
-        if(Input.GetKeyDown(KeyCode.F))
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        T type1 = gameObject.AddComponent<T>();
+        return type1;
     }
 }
