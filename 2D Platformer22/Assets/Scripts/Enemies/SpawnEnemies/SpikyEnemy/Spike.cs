@@ -11,6 +11,7 @@ public class Spike : MonoBehaviour
     {
         _speed = 5.5f;
         _damage = 10;
+        Destroy(gameObject, 5.5f);
     }
 
     private void Update()

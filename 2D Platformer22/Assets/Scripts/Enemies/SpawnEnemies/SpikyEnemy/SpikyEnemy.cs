@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SpikyEnemy : Enemy
 {
-    public GameObject _projectile;
+    [SerializeField]
+    private GameObject _projectile;
 
     private float _coolDown;
     private float _currentCoolDown;
-    private bool _onCoolDown;
 
     protected void Awake()
     {
         EnemySetUp(3, 30, 20);
-        _coolDown = 1.5f;
+        _coolDown = 2.5f;
+        if (_projectile != null)
+            _projectile.SetActive(false);
     }
 
     protected override void Update()
@@ -38,6 +40,7 @@ public class SpikyEnemy : Enemy
             Vector2 pos = RandomCircle(center, 0.1f, nextAngle);
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, center - pos);
             GameObject spikeClone = Instantiate(_projectile, pos, rot);
+            spikeClone.SetActive(true);
         }
     }
     private Vector2 RandomCircle(Vector2 center, float radius, int angle)

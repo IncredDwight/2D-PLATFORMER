@@ -19,7 +19,7 @@ public class GhostEnemy : Enemy
     {
         if (_currentCoolDown <= 0)
         {
-            _playerStats.AddStatusEffect<SlowDownStatusEffect>().StatusEffectSetUp(_debuffTime, _debuffTime);
+            _playerStats.AddStatusEffect<SlowDownStatusEffect>(_debuffTime, _debuffAmount);
             _currentCoolDown = _debuffTime + 2.5f;
         }
         else

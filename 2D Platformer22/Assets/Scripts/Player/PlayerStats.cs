@@ -32,11 +32,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         Rigidbody2D.velocity = Vector2.zero;
-        //Rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         _healthBar.SetHealthBar(_health);
         if (!DamageImmunity)
         {
             _health -= damage;
+            StartCoroutine(SetDamageImmunity(0.5f));
         }
         if (_health <= 0)
             Die();
@@ -58,6 +58,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void MovementSpeedModifier(float value)
     {
         _movementSpeed += value;
+        if (_movementSpeed <= 0)
+            _movementSpeed = 1;
     }
 
     public float GetMovementSpeed()
@@ -75,9 +77,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
         return _jumpForce;
     }
 
-    public void FireRateModifier(float value)
+    public IEnumerator SetDamageImmunity(float time)
     {
-        _fireRate += value;
+        DamageImmunity = true;
+        yield return new WaitForSeconds(time);
+        DamageImmunity = false;
     }
 
     private void StatsSetUp()
@@ -88,9 +92,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
         _health = _maxHealth;
     }
 
-    public T AddStatusEffect<T>() where T : MonoBehaviour
+    public void AddStatusEffect<T>(float timeEffect, float effectAmount) where T : MonoBehaviour
     {
         T type1 = gameObject.AddComponent<T>();
-        return type1;
+        StatusEffect status = type1 as StatusEffect;
+        if(status)
+            status.StatusEffectSetUp(timeEffect, effectAmount);
     }
 }

@@ -7,6 +7,7 @@ public class FlyQueen : Enemy
     private float _spawnCooldown;
     private float _currentSpawnCooldown;
 
+    [SerializeField]
     private GameObject _fly;
 
     private void Awake()
@@ -17,7 +18,6 @@ public class FlyQueen : Enemy
     protected override void Start()
     {
         base.Start();
-        _fly = FindObjectOfType<Flies>().gameObject;
         _currentSpawnCooldown = _spawnCooldown;
         if (_fly != null)
             _fly.SetActive(false);

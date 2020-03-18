@@ -8,13 +8,13 @@ public class TimeMasterEnemy : EnemyPathFinder
 
     private void Awake()
     {
-        _abilityPower = 0.2f;
+        _abilityPower = 0.5f;
         EnemySetUp(7, 20, 10);
     }
 
     protected override void Die()
     {
-        Time.timeScale += _abilityPower;
+        _playerStats.AddStatusEffect<TimeSpeedUpStatusEffect>(40, _abilityPower);
         base.Die();
     }
 }

@@ -142,4 +142,5 @@ MonoBehaviour:
   _movementSpeed: 0
   _damage: 0
   _health: 0
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 7485629786386142736, guid: 0701f61adac910b409207c7c9e28c1d6,
+    type: 3}
