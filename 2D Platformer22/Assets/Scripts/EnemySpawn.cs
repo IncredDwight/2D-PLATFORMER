@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     private Enemy[] _enemies;
     private int _currentActiveEnemiesCount;
 
-    [SerializeField] private float _speedGame;
+    [SerializeField] private float _speedGame = 0;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class EnemySpawn : MonoBehaviour
         float spawnPosY = Random.Range(6, 16);
         GameObject obj = Instantiate(_enemies[Random.Range(0, _enemies.Length)].gameObject, new Vector2(spawnPosX, spawnPosY), Quaternion.identity);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(obj.transform.position, 2f);
-        if (_currentActiveEnemiesCount < 6)
+        if (_currentActiveEnemiesCount < 9)
         {
             if (colliders.Length > 1)
             {
@@ -50,7 +50,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 obj.SetActive(true);
                 //obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, -2);
-                _speedGame += 5;
+                _speedGame += 15;
             }
         }
     }

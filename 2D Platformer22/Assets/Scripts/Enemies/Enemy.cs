@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    private ParticleSystem _bloodEffect;
+
     protected PlayerStats _playerStats;
     [SerializeField]
     protected float _movementSpeed;
@@ -18,6 +20,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
+        _bloodEffect = GameObject.Find("Blood").GetComponent<ParticleSystem>();
         _playerStats = FindObjectOfType<PlayerStats>();
         _health = _maxHealth;
         _startScale = transform.localScale;
@@ -48,6 +51,7 @@ public class Enemy : MonoBehaviour, IDamageable
     protected virtual void Die()
     {
         Debug.Log("Враг должен умирать, но программисту тоже кушац хочется(((");
+        Instantiate(_bloodEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

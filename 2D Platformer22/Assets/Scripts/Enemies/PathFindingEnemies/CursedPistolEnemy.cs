@@ -6,7 +6,7 @@ public class CursedPistolEnemy : EnemyPathFinder
 {
     private GameObject _projectile;
 
-    private float _fireRate = 0.25f;
+    private float _fireRate = 0.5f;
     private float _nextFire;
 
     private void Awake()

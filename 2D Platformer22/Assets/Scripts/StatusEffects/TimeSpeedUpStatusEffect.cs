@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class TimeSpeedUpStatusEffect : StatusEffect
 {
+    private bool _changed;
     protected override void Effect()
     {
-        Time.timeScale += _effectAmount;
+        if (Time.timeScale < 3)
+            _changed = true;
+            Time.timeScale += _effectAmount;
     }
 
     protected override void EndEffect()
     {
-        Time.timeScale -= _effectAmount;
+        if(_changed)
+            Time.timeScale -= _effectAmount;
     }
 }

@@ -13,7 +13,7 @@ public class SpikyEnemy : Enemy
     protected void Awake()
     {
         EnemySetUp(3, 30, 20);
-        _coolDown = 2.5f;
+        _coolDown = 1.5f;
         if (_projectile != null)
             _projectile.SetActive(false);
     }

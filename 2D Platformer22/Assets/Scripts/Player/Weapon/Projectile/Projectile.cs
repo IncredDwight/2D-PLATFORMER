@@ -36,8 +36,9 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collisionGameObject = collision.gameObject;
-        if(collisionGameObject.GetComponent<Weapon>() == null)
+        if(collisionGameObject.GetComponent<Weapon>() == null && collisionGameObject.layer != 8)
         {
+            Debug.Log(collisionGameObject);
             CameraShakeController.instance.StartShake(0.5f, _destroyPower);
             
             ParticleSystem particleClone = Instantiate(_destroyEffect, transform.position, Quaternion.identity);
