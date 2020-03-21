@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class GhostEnemy : Enemy
+public class GhostEnemy : EnemyPathFinder
 {
     [SerializeField]
     private float _debuffAmount;
@@ -10,19 +11,23 @@ public class GhostEnemy : Enemy
 
     private void Awake()
     {
-        EnemySetUp(0, 70, 30);
-        _debuffAmount = 4.5f;
+        EnemySetUp(3, 60, 30);
+        _debuffAmount = 3.5f;
         _debuffTime = 4;
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (_currentCoolDown <= 0)
         {
+            _currentCoolDown = _debuffTime * 3;
             _playerStats.AddStatusEffect<SlowDownStatusEffect>(_debuffTime, _debuffAmount);
-            _currentCoolDown = _debuffTime + 2.5f;
         }
         else
+        {
             _currentCoolDown -= Time.deltaTime;
+        }
     }
+
+
 }

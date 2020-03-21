@@ -18,10 +18,6 @@ public class CameraShakeController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartShake(0.5f, 0.8f);
-        }
         Shake();
     }
 

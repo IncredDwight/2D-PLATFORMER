@@ -14,7 +14,7 @@ public class TimeMasterEnemy : EnemyPathFinder
 
     protected override void Die()
     {
-        _playerStats.AddStatusEffect<TimeSpeedUpStatusEffect>(40, _abilityPower);
+        _playerStats.AddStatusEffect<TimeSpeedUpStatusEffect>(10, _abilityPower);
         base.Die();
     }
 }
