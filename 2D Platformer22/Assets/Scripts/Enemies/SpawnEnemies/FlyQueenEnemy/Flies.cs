@@ -19,7 +19,7 @@ public class Flies : EnemyPathFinder
     {
         base.OnTriggerEnter2D(collision);
         if (collision.GetComponent<PlayerStats>() != null)
-            Destroy(gameObject);
+            Die();
     }
 
 

@@ -7,7 +7,16 @@ public class EnemySpawn : MonoBehaviour
     private Enemy[] _enemies;
     private int _currentActiveEnemiesCount;
 
-    [SerializeField] private float _speedGame = 0;
+    [SerializeField]
+    private float _minXPos;
+    [SerializeField]
+    private float _maxXPos;
+    [SerializeField]
+    private float _minYPos;
+    [SerializeField]
+    private float _maxYPos;
+    [SerializeField]
+    private float _speedGame = 0;
 
     private void Awake()
     {
@@ -35,8 +44,8 @@ public class EnemySpawn : MonoBehaviour
 
     private void Spawn()
     {
-        float spawnPosX = Random.Range(21, 50);
-        float spawnPosY = Random.Range(6, 16);
+        float spawnPosX = Random.Range(_minXPos, _maxXPos);
+        float spawnPosY = Random.Range(_minYPos, _maxYPos);
         GameObject obj = Instantiate(_enemies[Random.Range(0, _enemies.Length)].gameObject, new Vector2(spawnPosX, spawnPosY), Quaternion.identity);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(obj.transform.position, 2f);
         if (_currentActiveEnemiesCount < 9)

@@ -13,7 +13,7 @@ public class FlyQueen : Enemy
     private void Awake()
     {
         EnemySetUp(4, 50, 20);
-        _spawnCooldown = 2f;
+        _spawnCooldown = 4f;
     }
     protected override void Start()
     {

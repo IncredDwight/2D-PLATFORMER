@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpTile : MonoBehaviour
 {
+    [SerializeField]
     private float _jumpPower = 15.5f;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -15,6 +16,4 @@ public class JumpTile : MonoBehaviour
             _playerStats.Rigidbody2D.velocity = new Vector2(_playerStats.Rigidbody2D.velocity.x, Vector2.up.y * _jumpPower);
         }
     }
-
-
 }

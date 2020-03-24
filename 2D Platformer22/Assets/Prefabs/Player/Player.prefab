@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 9177214824918476594}
   - component: {fileID: 9177214824918476749}
   - component: {fileID: 9177214824918476748}
+  - component: {fileID: 4913959163351250177}
+  - component: {fileID: 5522641703082504792}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,6 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b442b75fe5797544197f774665c0809a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementSpeed: 0
+  _maxHealth: 0
+  _health: 0
+  DamageImmunity: 0
+  _maxJumpForce: 0
+  _jumpForce: 0
 --- !u!114 &9177214824918476594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +170,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f04fe0c837678544ac59f7080848d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4913959163351250177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177214824918476597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a221ec1ff5ff6b7419d24545df3e6381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStats: {fileID: 0}
+--- !u!114 &5522641703082504792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177214824918476597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01478336f286a2f468fe47460f359a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedGame: 0
 --- !u!1 &9177214825011937652
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,12 +266,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bdee7d120971e8e49bc9ec9b609c34fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b3455b4d69be4946889183bd699deb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 7.09}
+  m_Size: {x: 5.08, y: 7.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
